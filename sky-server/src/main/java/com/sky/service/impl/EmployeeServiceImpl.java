@@ -19,12 +19,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeMapper employeeMapper;
 
+    //TODO 通过DigestUtils.md5DigestAsHex()方法对密码进行加密
     /**
      * 员工登录
      *
      * @param employeeLoginDTO
      * @return
      */
+    @Override
     public Employee login(EmployeeLoginDTO employeeLoginDTO) {
         String username = employeeLoginDTO.getUsername();
         String password = employeeLoginDTO.getPassword();
@@ -39,12 +41,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
 
         //密码比对
-
-        if (!password.equals(employee.getPassword())) {
-            //密码错误
-            throw new PasswordErrorException(MessageConstant.PASSWORD_ERROR);
-        }
-
+       if(!employee.getPassword().equals(DigestUtils.md5DigestAsHex(password.getBytes()))){
+           throw  new AccountNotFoundException(MessageConstant.ACCOUNT_NOT_FOUND);
+       }
         if (employee.getStatus() == StatusConstant.DISABLE) {
             //账号被锁定
             throw new AccountLockedException(MessageConstant.ACCOUNT_LOCKED);
