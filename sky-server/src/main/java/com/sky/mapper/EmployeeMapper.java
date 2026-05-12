@@ -20,8 +20,8 @@ public interface EmployeeMapper {
      * 新增员工
      * @param employee
      */
-    @Insert("insert * from employee (id, username, name, password, phone,sex, id_number, status, create_time, update_time, create_user, update_user) " +
-            "values (#{id}, #{username}, #{name}, #{password}, #{phone}, #{sex}, #{idNumber}, #{status}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser})")
+    @Insert("insert into employee (username, name, password, phone, sex, id_number, status, create_time, update_time, create_user, update_user) " +
+            "values (#{username}, #{name}, #{password}, #{phone}, #{sex}, #{idNumber}, #{status}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser})")
     void save(Employee employee);
 
 }

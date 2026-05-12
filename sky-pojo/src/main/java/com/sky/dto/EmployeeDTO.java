@@ -11,7 +11,6 @@ import java.io.Serializable;
 
 @Data
 public class EmployeeDTO implements Serializable {
-    @NotNull(message = "id不能为空")
     private Long id;
     @NotNull(message = "用户名不能为空")
     private String username;
