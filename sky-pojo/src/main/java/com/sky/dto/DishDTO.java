@@ -2,6 +2,8 @@ package com.sky.dto;
 
 import com.sky.entity.DishFlavor;
 import lombok.Data;
+
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ public class DishDTO implements Serializable {
     //菜品名称
     private String name;
     //菜品分类id
+//    @NotNull(message = "菜品分类不能为空")
     private Long categoryId;
     //菜品价格
     private BigDecimal price;

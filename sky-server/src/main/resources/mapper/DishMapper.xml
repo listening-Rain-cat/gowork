@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sky.mapper.DishMapper">
+    <resultMap id="dishVOResultMap" type="com.sky.vo.DishVO">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="categoryId" column="category_id"/>
+        <result property="price" column="price"/>
+        <result property="image" column="image"/>
+        <result property="description" column="description"/>
+        <result property="status" column="status"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="categoryName" column="category_name"/>
+        <collection property="flavors" ofType="com.sky.entity.DishFlavor">
+            <id property="id" column="flavor_id"/>
+            <result property="dishId" column="flavor_dish_id"/>
+            <result property="name" column="flavor_name"/>
+            <result property="value" column="flavor_value"/>
+        </collection>
+    </resultMap>
+
+    <update id="updateById">
+        UPDATE dish
+        <set>
+            <if test="id != null">id = #{id},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="categoryId != null">category_id = #{categoryId},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="image != null">image = #{image},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="status != null">status = #{status},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+<!--    通过id查询菜品-->
+    <select id="selectDishById" resultType="com.sky.entity.Dish"></select>
+<!--    通过菜品id查询菜品风味-->
+    <select id="selectDishFlavorByDishId" resultType="com.sky.entity.DishFlavor"></select>
+<!--    通过id查询菜品和口味-->
+    <select id="getByIdWithFlavor" resultMap="dishVOResultMap">
+        select d.id,
+               d.name,
+               d.category_id,
+               d.price,
+               d.image,
+               d.description,
+               d.status,
+               d.update_time,
+               c.name category_name,
+               df.id flavor_id,
+               df.dish_id flavor_dish_id,
+               df.name flavor_name,
+               df.value flavor_value
+        from dish d
+        left join category c on d.category_id = c.id
+        left join dish_flavor df on d.id = df.dish_id
+        where d.id = #{id}
+    </select>
+</mapper>
