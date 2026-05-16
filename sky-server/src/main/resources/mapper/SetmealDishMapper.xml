@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sky.mapper.SetmealDishMapper">
+    <insert id="save">
+        INSERT INTO setmeal_dish (setmeal_id, dish_id, name, price, copies)
+        VALUES (#{setmealId}, #{dishId}, #{name}, #{price}, #{copies})
+    </insert>
+    <update id="updateById">
+    UPDATE setmeal_dish
+    <set>
+        <if test="name != null">
+            name = #{name},
+        </if>
+        <if test="price != null">
+            price = #{price},
+        </if>
+        <if test="copies != null">
+            copies = #{copies},
+        </if>
+    </set>
+    WHERE dish_id = #{dishId};
+    </update>
+    <delete id="deleteListById">
+        DELETE FROM setmeal_dish
+        WHERE setmeal_id IN
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="getSetmealDishByDishId" resultType="com.sky.entity.SetmealDish">
+        SELECT * FROM setmeal_dish
+        <where>
+            dish_id = #{id}
+        </where>
+    </select>
+    <select id="getSetmealDishBySetmealId" resultType="com.sky.entity.SetmealDish">
+        SELECT * FROM setmeal_dish
+        <where>
+            setmeal_id = #{id}
+        </where>
+    </select>
+    <select id="getDishByDishId" resultType="com.sky.entity.SetmealDish">
+        SELECT * FROM setmeal_dish
+        <where>
+            setmeal_id = #{id}
+        </where>
+    </select>
+</mapper>

@@ -13,6 +13,9 @@ public class MessageConstant {
     public static final String USER_NOT_LOGIN = "用户未登录";
     public static final String CATEGORY_NOT_FOUND = "分类不存在";
     public static final String DISH_NOT_FOUND = "菜品不存在";
+    public static final String DISH_EXISTED = "菜品已存在";
+    public static final String DISH_NOT_HAVE_CATEGORY = "菜品分类不能为空";
+    public static final String DISH_NOT_HAVE_IMAGE = "菜品图片不能为空";
     public static final String SETMEAL_NOT_FOUND = "套餐不存在";
     public static final String CATEGORY_BE_RELATED_BY_SETMEAL = "当前分类关联了套餐,不能删除";
     public static final String CATEGORY_BE_RELATED_BY_DISH = "当前分类关联了菜品,不能删除";
@@ -28,4 +31,6 @@ public class MessageConstant {
     public static final String ORDER_STATUS_ERROR = "订单状态错误";
     public static final String ORDER_NOT_FOUND = "订单不存在";
 
+    public static final String SETMEAL_NAME_EXISTS = "套餐名称已存在";
+    public static final String SETMEAL_NOT_HAVE_DISHES = "套餐内没有菜品";
 }
