@@ -1,0 +1,825 @@
+{
+  "info": {
+    "name": "苍穹外卖-用户端接口",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "C端-分类接口",
+      "item": [
+        {
+          "name": "条件查询",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/category/list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "category",
+                "list"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "1",
+                  "description": "分类类型：1 菜品分类 2 套餐分类",
+                  "disabled": true
+                }
+              ],
+              "variable": []
+            },
+            "description": ""
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "C端-地址簿接口",
+      "item": [
+        {
+          "name": "新增地址",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user/addressBook",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "addressBook"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"cityCode\": \"\",\r\n  \"cityName\": \"\",\r\n  \"consignee\": \"\",\r\n  \"detail\": \"\",\r\n  \"districtCode\": \"\",\r\n  \"districtName\": \"\",\r\n  \"id\": 0,\r\n  \"isDefault\": 0,\r\n  \"label\": \"\",\r\n  \"phone\": \"\",\r\n  \"provinceCode\": \"\",\r\n  \"provinceName\": \"\",\r\n  \"sex\": \"\",\r\n  \"userId\": 0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "查询当前登录用户的所有地址信息",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/addressBook/list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "addressBook",
+                "list"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "查询默认地址",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/addressBook/default",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "addressBook",
+                "default"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "根据id修改地址",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user/addressBook",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "addressBook"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"cityCode\": \"\",\r\n  \"cityName\": \"\",\r\n  \"consignee\": \"\",\r\n  \"detail\": \"\",\r\n  \"districtCode\": \"\",\r\n  \"districtName\": \"\",\r\n  \"id\": 0,\r\n  \"isDefault\": 0,\r\n  \"label\": \"\",\r\n  \"phone\": \"\",\r\n  \"provinceCode\": \"\",\r\n  \"provinceName\": \"\",\r\n  \"sex\": \"\",\r\n  \"userId\": 0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "根据id删除地址",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/addressBook",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "addressBook"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "101",
+                  "description": "地址id",
+                  "disabled": false
+                }
+              ],
+              "variable": []
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "根据id查询地址",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/addressBook/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "addressBook",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "101",
+                  "description": "地址id"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "设置默认地址",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user/addressBook/default",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "addressBook",
+                "default"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\": 0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "C端-套餐浏览接口",
+      "item": [
+        {
+          "name": "根据分类id查询套餐",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/setmeal/list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "setmeal",
+                "list"
+              ],
+              "query": [
+                {
+                  "key": "categoryId",
+                  "value": "101",
+                  "description": "分类id",
+                  "disabled": false
+                }
+              ],
+              "variable": []
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "根据套餐id查询包含的菜品",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/setmeal/dish/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "setmeal",
+                "dish",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "101",
+                  "description": "套餐id"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "C端-店铺操作接口",
+      "item": [
+        {
+          "name": "获取营业状态",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/shop/status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "shop",
+                "status"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": ""
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "C端-用户接口",
+      "item": [
+        {
+          "name": "登录",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user/user/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "user",
+                "login"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"code\": \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "退出",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user/user/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "user",
+                "logout"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "C端-菜品浏览接口",
+      "item": [
+        {
+          "name": "根据分类id查询菜品",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/dish/list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "dish",
+                "list"
+              ],
+              "query": [
+                {
+                  "key": "categoryId",
+                  "value": "101",
+                  "description": "分类id",
+                  "disabled": false
+                }
+              ],
+              "variable": []
+            },
+            "description": ""
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "C端-订单接口",
+      "item": [
+        {
+          "name": "催单",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/order/reminder/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "order",
+                "reminder",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "101",
+                  "description": "订单id"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "再来一单",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/order/repetition/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "order",
+                "repetition",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "101",
+                  "description": "订单id"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "历史订单查询",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/order/historyOrders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "order",
+                "historyOrders"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "页面",
+                  "disabled": false
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10",
+                  "description": "每页记录数",
+                  "disabled": false
+                },
+                {
+                  "key": "status",
+                  "value": "",
+                  "description": "订单状态",
+                  "disabled": true
+                }
+              ],
+              "variable": []
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "取消订单",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/order/cancel/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "order",
+                "cancel",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "101",
+                  "description": "订单id"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "查询订单详情",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/order/orderDetail/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "order",
+                "orderDetail",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "101",
+                  "description": "订单id"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "用户下单",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user/order/submit",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "order",
+                "submit"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"addressBookId\": 0,\r\n  \"amount\": 0,\r\n  \"deliveryStatus\": 0,\r\n  \"estimatedDeliveryTime\": \"\",\r\n  \"packAmount\": 0,\r\n  \"payMethod\": 0,\r\n  \"remark\": \"\",\r\n  \"tablewareNumber\": 0,\r\n  \"tablewareStatus\": 0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "订单支付",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user/order/payment",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "order",
+                "payment"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"orderNumber\": \"\",\r\n  \"payMethod\": 0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "C端-购物车接口",
+      "item": [
+        {
+          "name": "删除购物车中一个商品",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user/shoppingCart/sub",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "shoppingCart",
+                "sub"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"dishFlavor\": \"\",\r\n  \"dishId\": 0,\r\n  \"setmealId\": 0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "查看购物车",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/shoppingCart/list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "shoppingCart",
+                "list"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "添加购物车",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user/shoppingCart/add",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "shoppingCart",
+                "add"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"dishFlavor\": \"\",\r\n  \"dishId\": 0,\r\n  \"setmealId\": 0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "清空购物车",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/shoppingCart/clean",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "shoppingCart",
+                "clean"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": ""
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}
