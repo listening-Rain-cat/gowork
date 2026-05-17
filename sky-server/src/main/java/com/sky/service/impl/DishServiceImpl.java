@@ -141,6 +141,11 @@ public class DishServiceImpl implements DishService {
         return new PageResult(pages.getTotal(),pages.getResult());
     }
 
+    /**
+     * 起售或停售
+     * @param status
+     * @param id
+     */
     @Override
     public void startOrStop(Integer status, Long id) {
         Dish dish = new Dish();
@@ -149,6 +154,11 @@ public class DishServiceImpl implements DishService {
         dishMapper.updateDishById(dish);
     }
 
+    /**
+     * 通过分类id获取菜品列表
+     * @param categoryId
+     * @return
+     */
     @Override
     public List<DishVO> getDishByCategoryId(Long categoryId) {
         List<DishVO> list = dishMapper.getDishAndFlavorByCategoryId(categoryId);
